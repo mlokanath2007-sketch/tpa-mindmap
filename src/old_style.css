@@ -34,6 +34,19 @@ button:focus-visible,input:focus-visible,a:focus-visible,label:focus-within{outl
 .switch{display:inline-flex;border:1px solid var(--ink);padding:3px;background:var(--card);flex:none;border-radius:2px}
 .switch button{border:0;background:transparent;padding:6px 18px;min-height:44px;font-family:"IM Fell English SC",serif;font-size:19px;letter-spacing:.04em}
 .switch button[aria-pressed=true]{background:var(--ink);color:var(--paper)}
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center}
+.sharebtn::before{content:"❧ ";color:var(--gold)}
+.sharedlg{border:0;padding:0;background:transparent;color:var(--ink);width:min(440px,calc(100vw - 32px));max-width:none;max-height:calc(100vh - 24px)}
+.sharedlg::backdrop{background:rgba(38,24,8,.62)}
+.sharedlg .sin{background:var(--card);border:3px double var(--line);outline:1px solid var(--line);outline-offset:-10px;padding:26px 24px 22px;text-align:center}
+.sharedlg .sin::before{content:"❦";display:block;color:var(--gold);font-size:24px;line-height:1;margin-bottom:6px}
+.sharedlg h2{color:var(--red)}
+.sharedlg .qr{margin:14px auto 10px;width:fit-content;padding:6px;border:1px solid var(--line)}
+.sharedlg .qr svg{display:block;width:min(300px,68vw,50vh);height:auto}
+.sharedlg .slink{margin:6px 0 14px;font-family:"IM Fell English",serif;font-size:18px;overflow-wrap:anywhere}
+.sharedlg .slink a{color:var(--pen);text-decoration:none;border-bottom:1px solid var(--pen)}
+.sharedlg .sacts{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.sharedlg .smsg{min-height:1.5em;margin:10px 0 0;color:var(--ok);font-style:italic;font-size:17px}
 .sticky{background:var(--note);padding:16px 18px 18px;border:1px solid var(--line);outline:1px solid var(--line);outline-offset:-5px;font-size:17px;line-height:1.55}
 .sticky b{font-family:"IM Fell English SC",serif;font-size:21px;font-weight:400;display:block;margin-bottom:4px;color:var(--red);letter-spacing:.03em}
 .notes{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(250px,100%),1fr));gap:18px;margin:6px 0 26px}
@@ -163,5 +176,5 @@ button:focus-visible,input:focus-visible,a:focus-visible,label:focus-within{outl
 [hidden]{display:none!important}
 @media(max-width:860px){.limbs{grid-template-columns:minmax(0,1fr)}}
 @media(max-width:600px){body{font-size:18px}.simple{font-size:19px}.rbar{gap:6px;padding:8px 10px}.rbar .btn{font-size:15px;padding:6px 10px}.fs{grid-template-columns:minmax(0,1fr)}.bub .h{font-size:19px}.bub.sec .h{font-size:22px}.bub .s{font-size:13px}.wrap{outline-offset:3px}.rwrap{outline-offset:3px;margin:10px 6px 30px}}
-@media print{.search,.rbar,.switch{display:none}.reader{position:static;display:block}}
+@media print{.search,.rbar,.switch,.sharebtn{display:none}.reader{position:static;display:block}}
 </style>

@@ -36,7 +36,7 @@ Every file is UTF-8. build_all.py sets PYTHONUTF8=1, so it works on Windows.
 3. `extra1.py` / `extra2.py`: `why` ("Why the law says this"), `flow` (decision flowchart) and `conf` ("Don't confuse with") for every section.
 4. `build.py`: merges the above and fixes typos in the bare act (`FIX`). It renders the bare act with the dissect phrases highlighted (`render_bare`) and adds `NOTES`. It writes `content.json`.
 5. `crisp.py`: the 16 mind-map branches (`BRANCH`) and their section groupings (`C`).
-6. `make.py`: injects the JSON into `template.html` and writes `dist/classic.html`.
+6. `make.py`: injects the JSON into `template.html` and writes `dist/classic.html`. It also holds `SITE_URL` (the live link) and bakes the Share pop-up's QR code in as an inline SVG via `qr.py` (a small dependency-free QR encoder). If the site moves, change `SITE_URL` and rebuild.
 7. `make_old.py`: builds the old-book edition from classic.html:
    - swaps in `old_style.css` and `oldfx.py` (CSS for the torn paper edges, textures and book cover);
    - adds the cover-opening animation;
@@ -77,6 +77,6 @@ To edit content, change the g*/extra* files, then rebuild. Never hand-edit dist/
 - In the claude.ai artifact viewer, `history.replaceState` throws a SecurityError. Always go through `setHash()` (try/catch). The smoke test simulates this.
 - Hash routes: `#s-<sid>` opens a section directly and skips the cover.
 
-## Possible next steps
-- Deploy as a small website: Netlify Drop (drag the dist/ folder), or GitHub Pages / Vercel from this folder.
-- Add a share button or QR code for classmates.
+## Hosting
+- Live at https://mlokanath2007-sketch.github.io/tpa-mindmap/ (GitHub Pages). `.github/workflows/pages.yml` publishes `dist/` on every push to `main`, so: rebuild, commit, push.
+- A "❧ Share" button under the view switch opens a framed pop-up with the QR code, the link, Copy link and (on phones) the native Share sheet.

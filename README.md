@@ -4,7 +4,9 @@ by Madhi Lokanath
 An interactive study guide for TPA s.5–55 (plus s.3 and s.56). Each section has a plain-language explanation, illustrations, a decision flowchart, "Don't confuse with", exam points, a quiz and the bare act behind a tap.
 
 ## Open it
-Double-click `dist/index.html`. It works offline in any browser, on a phone or a laptop.
+Online: **https://mlokanath2007-sketch.github.io/tpa-mindmap/** (tap **Share** on the site for a QR code).
+
+Offline: double-click `dist/index.html`. It works in any browser, on a phone or a laptop.
 
 ## Rebuild after editing
 ```

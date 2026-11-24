@@ -39,6 +39,14 @@ button:focus-visible,input:focus-visible,a:focus-visible,label:focus-within{outl
 .switch{display:inline-flex;border:2px solid var(--ink);border-radius:999px;padding:3px;background:var(--card);flex:none}
 .switch button{border:0;background:transparent;border-radius:999px;padding:8px 18px;min-height:44px;font-size:18px}
 .switch button[aria-pressed=true]{background:var(--ink);color:var(--paper)}
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.sharedlg{border:0;padding:0;background:transparent;color:var(--ink);width:min(420px,calc(100vw - 32px));max-width:none}
+.sharedlg::backdrop{background:rgba(10,20,40,.5)}
+.sharedlg .sin{background:var(--card);border:2px solid var(--ink);border-radius:16px;padding:22px 20px;text-align:center}
+.sharedlg .qr svg{display:block;width:min(300px,70vw,52vh);height:auto;margin:12px auto}
+.sharedlg .slink{margin:4px 0 12px;overflow-wrap:anywhere}.sharedlg .slink a{color:var(--pen)}
+.sharedlg .sacts{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.sharedlg .smsg{min-height:1.4em;margin:10px 0 0;color:var(--ok);font-size:16px}
 .sticky{background:var(--note);padding:14px 16px 16px;border-radius:2px 2px 10px 2px;box-shadow:0 6px 14px -8px rgba(0,0,0,.45);transform:rotate(-1.2deg);font-size:16px;line-height:1.5}
 .sticky.g{background:var(--note2);transform:rotate(1deg)}.sticky.p{background:var(--note3);transform:rotate(-.5deg)}.sticky.b{background:var(--note4);transform:rotate(.6deg)}
 .sticky b{font-family:Caveat,cursive;font-size:22px;font-weight:700;display:block;margin-bottom:2px}
@@ -166,7 +174,7 @@ button:focus-visible,input:focus-visible,a:focus-visible,label:focus-within{outl
 @media(max-width:860px){.limbs{grid-template-columns:minmax(0,1fr)}}
 @media(max-width:600px){body{font-size:17px}.simple{font-size:19px}.rbar{gap:6px;padding:8px 10px}.rbar .btn{font-size:15px;padding:6px 10px}.switch button{padding:8px 14px;font-size:17px}}
 @media(prefers-reduced-motion:no-preference){.chip{transition:transform .15s}.chip:hover{transform:rotate(-1.5deg) scale(1.03)}}
-@media print{body::before,.search,.rbar,.switch{display:none}.reader{position:static;display:block}}
+@media print{body::before,.search,.rbar,.switch,.sharebtn{display:none}.reader{position:static;display:block}}
 </style>
 </head>
 <body>
@@ -176,9 +184,12 @@ button:focus-visible,input:focus-visible,a:focus-visible,label:focus-within{outl
       <h1>Transfer of Property Act, 1882</h1>
       <p class="by">by <span class="hl">Madhi Lokanath</span></p>
     </div>
-    <div class="switch" role="group" aria-label="Choose a view">
-      <button id="vMap" aria-pressed="true">Mind map</button>
-      <button id="vDet" aria-pressed="false">Detailed</button>
+    <div class="tools">
+      <div class="switch" role="group" aria-label="Choose a view">
+        <button id="vMap" aria-pressed="true">Mind map</button>
+        <button id="vDet" aria-pressed="false">Detailed</button>
+      </div>
+      <button class="btn sharebtn" id="shareBtn" aria-haspopup="dialog">Share</button>
     </div>
   </header>
 
@@ -222,6 +233,21 @@ button:focus-visible,input:focus-visible,a:focus-visible,label:focus-within{outl
   </div>
   <div class="rwrap" id="rbody"></div>
 </div>
+
+<dialog class="sharedlg" id="shareDlg" aria-labelledby="shareT">
+  <div class="sin">
+    <h2 id="shareT">Share this book</h2>
+    <p class="by">Scan with a phone camera to open it</p>
+    <div class="qr"><!--QRSVG--></div>
+    <p class="slink"><a href="{{SITE_URL}}" id="shareUrl">{{SITE_SHORT}}</a></p>
+    <div class="sacts">
+      <button class="btn pri" id="shareCopy">Copy link</button>
+      <button class="btn" id="shareNative" hidden>Share…</button>
+      <button class="btn" id="shareClose">Close</button>
+    </div>
+    <p class="smsg" id="shareMsg" role="status"></p>
+  </div>
+</dialog>
 
 <script id="data" type="application/json">/*DATA*/</script>
 <script id="mmdata" type="application/json">/*MM*/</script>
@@ -415,6 +441,20 @@ let ddW=0;const ddro=new ResizeObserver(()=>{const w=stage.clientWidth;if(w===dd
 let wr=0;const ro=new ResizeObserver(()=>{cancelAnimationFrame(wr);wr=requestAnimationFrame(wires)});ro.observe(document.getElementById("map"));
 drawMap();route();
 if(document.fonts)document.fonts.ready.then(wires);
+
+/* ---------- share button + QR ---------- */
+const dlg=document.getElementById("shareDlg"),URL_="{{SITE_URL}}",smsg=document.getElementById("shareMsg"),sn=document.getElementById("shareNative");
+if(navigator.share)sn.hidden=false;
+document.getElementById("shareBtn").onclick=()=>{smsg.textContent="";if(dlg.showModal)dlg.showModal();else dlg.setAttribute("open","")};
+const shut=()=>{if(dlg.close)dlg.close();else dlg.removeAttribute("open")};
+document.getElementById("shareClose").onclick=shut;
+dlg.addEventListener("click",e=>{if(e.target===dlg)shut()});
+document.getElementById("shareCopy").onclick=()=>{
+ const ok=()=>{smsg.textContent="Link copied. Paste it in your class group."};
+ const old=()=>{try{const r=document.createRange();r.selectNodeContents(document.getElementById("shareUrl"));const s=getSelection();s.removeAllRanges();s.addRange(r);document.execCommand("copy")?ok():smsg.textContent="Select the link above and copy it."}catch(e){smsg.textContent="Select the link above and copy it."}};
+ if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(URL_).then(ok,old);else old();
+};
+sn.onclick=()=>{navigator.share({title:"Transfer of Property Act, 1882",text:"Interactive TPA 1882 mind map by Madhi Lokanath",url:URL_}).catch(()=>{})};
 }
 </script>
 </body>
