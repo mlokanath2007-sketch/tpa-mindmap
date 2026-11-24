@@ -44,7 +44,7 @@ ills=[("Statutory","Two-anna share from 8:4:4 holdings.","m","1 : ½ : ½","Illu
 exam=dict(q="Short note on s.47.",pts=["Unspecified share","Proportionate reduction","Illustration"],line="Under s.47, where co-owners transfer a share without specifying from whose share, it takes effect on their shares equally or proportionately."),
 quiz=[("50:25:25 co-owners sell 20% unspecified. Reduction:",["Equal 6.67% each","10:5:5","All from the largest"],1,"Proportionate.")],
 links=[("s.44","One co-owner transferring.")],
-next="Section 48 sets the priority rule: first in time.")
+next="Section 49 gives the buyer a claim on fire-insurance money.")
 
 S['48'] = dict(tag='beyond',
 simple="If the same owner creates <span class='hl'>rights over the same property at different times</span> and they cannot all fully exist together, the <span class='hl'>earlier right wins</span> (first in time, first in right), unless there is a special contract or reservation binding the earlier transferee.",
@@ -55,7 +55,7 @@ ills=[("First in time","Two mortgages of the same land.","m","Earlier ranks firs
 exam=dict(q="Short note on priority under s.48.",pts=["First in time, first in right","Later rights subject to earlier","Special contract or reservation"],line="Under s.48, where rights created at different times over the same property cannot co-exist fully, each later right is subject to the earlier ones, absent a special contract or reservation."),
 quiz=[("Two mortgages of the same land; the earlier ranks:",["Second","First","Equally"],1,"s.48.")],
 links=[("s.3","Notice and registration."),("s.78","Postponement of prior mortgagee.")],
-next="Section 49 gives the buyer a claim on fire-insurance money.")
+next="Section 50 protects tenants who pay rent in good faith to the wrong person.")
 
 S['49'] = dict(tag='beyond',
 simple="If property sold for value was <span class='hl'>insured against fire</span> at the date of sale and is then damaged by fire, the buyer can require that the <span class='hl'>insurance money actually received by the seller</span> be used to <span class='hl'>reinstate the property</span>, unless agreed otherwise.",
@@ -66,7 +66,7 @@ ills=[("Fire after sale","Insurer pays the seller.","y","Buyer can demand reinst
 exam=dict(q="Short note on s.49.",pts=["Insurance at transfer","Fire loss","Reinstatement"],line="Under s.49, the transferee of insured immovable property may require insurance money actually received by the transferor for fire damage to be applied in reinstating the property."),
 quiz=[("s.49 covers loss by:",["Theft","Fire","Flood"],1,"Fire only.")],
 links=[("s.135","Assignment of fire insurance policies.")],
-next="Section 50 protects tenants who pay rent in good faith to the wrong person.")
+next="Section 52 sets out the doctrine of lis pendens.")
 
 S['50'] = dict(tag='beyond',
 simple="If a tenant <span class='hl'>pays rent in good faith</span> to the person he held from, he is <span class='hl'>not liable to pay again</span> even if that person later turns out to have had no right to it.",
@@ -92,4 +92,4 @@ ills=[("Good faith","Buyer improves, honestly believing he owns.","y","Compensat
 exam=dict(q="Short note on improvements by bona fide holders (s.51).",pts=["Conditions","Two options","Value at eviction","Growing crops"],line="Under s.51, a transferee who improves property believing in good faith he is absolutely entitled, and is evicted by a better title, may require the evictor to pay the value of the improvement or sell him the property at market value without it."),
 quiz=[("The improvement is valued at:",["Cost of building","Time of eviction","Date of purchase"],1,"s.51.")],
 links=[("s.41","Ostensible owner."),("s.43","Feeding the grant.")],
-next="Section 52 sets out the doctrine of lis pendens.")
+next="Next come the co-owner rules: Section 44 says what the buyer of one co-owner's share gets.")

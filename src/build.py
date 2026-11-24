@@ -12,7 +12,7 @@ FIX = {
  '40': [('enjoymentin', 'enjoyment in'), ('orOr of obligation annexed to ownership but not amounting to interest or easement.—', 'or\n<i>Or of obligation annexed to ownership but not amounting to interest or easement.</i>—'), ('not against such property', 'nor against such property')],
  '46': [('for a quarter share of mauza. There', 'for a quarter share of mauza Lalpura. There'), ('share in the mauza', 'share in that mauza')],
  '51': [('and he subsequently evicted', 'and he is subsequently evicted'), ('to sell interest', 'to sell his interest')],
- '52': [('suit or proceedings which', 'suit or proceeding which')],
+ '52': [('suit or proceedings which', 'suit or proceeding which'), ('within the limits of India excluding the State of Jammu and Kashmir or', 'within the limits of India or')],
  '55': [('buye of', 'buyer of'), ('encumbrance', 'incumbrance'), ('encumbered', 'incumbered')],
  '56': [('mortgaged-debt', 'mortgage-debt')],
  '36': [('all rents annuities', 'all rents, annuities')],
@@ -31,7 +31,6 @@ NOTES = {
  '53A': 'This is the current text. The 2001 amendment (Act 48 of 2001) removed the words "the contract, though required to be registered, has not been registered, or". Older printed copies still show them.',
  '55': 'Your Indian Kanoon copy has a typo, "buye"; corrected. The Act spells it "incumbrance".',
  '56': 'Your Indian Kanoon copy reads "mortgaged debt"; the Act reads "mortgage-debt".',
- '52': 'Both the Indian Kanoon and government copies show the words "excluding the State of Jammu and Kashmir". Check the current India Code text if your professor asks about it.',
 }
 
 def clean(sid):

@@ -42,7 +42,7 @@ X('26', "Conditions before a gift are means to an end. If the purpose is achieve
  [("Is it a condition to be fulfilled before the interest arises?",">","See s.29 (strict)"),("Has it been complied with in substance, before the interest is claimed?","Deemed fulfilled (cy-près)","Not fulfilled")],
  "",
  "s.29 condition subsequent",
- [("Standard","Substantial compliance","Strict compliance"),("Why","Helps the beneficiary get the gift","Protects the holder from losing it"),("Example","Two of three consents, third person dead","Must marry without consent while a minor, exactly")])
+ [("Standard","Substantial compliance","Strict compliance"),("Why","Helps the beneficiary get the gift","Protects the holder from losing it"),("Example","Two of three consents, third person dead","Gift over to D only if B marries without C's consent while a minor: it must happen exactly that way")])
 
 X('27', "The giver clearly wanted the second person to take if the first gift did not work out. The exact way it failed rarely matters to that intention, unless the giver said so.",
  [("Is there a prior and an ulterior disposition in the same transaction?",">","Not s.27"),("Has the prior disposition failed?",">","Ulterior gift waits"),("Did the giver intend the ulterior gift only for failure in a particular manner?",">","Ulterior gift takes effect (acceleration)"),("Did it fail in that particular manner?","Ulterior gift takes effect","Ulterior gift does not take effect")],
