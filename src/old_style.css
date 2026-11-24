@@ -1,0 +1,167 @@
+<style>
+/* VOICE: a British-era printed statute book, solemn, ordered and quietly ornamental.
+   IDEA: a Government of India gazette volume of 1882, foxed paper, ruled frames, marginal notes and section marks.
+   PICTURE: the branch bubbles become engraved oval cartouches joined by fine ink rules; section pages read like a printed Act.
+   COLOUR and TYPE: aged parchment, sepia ink, oxblood rubrics, faded gold; engraved small-caps title, IM Fell small caps headings, EB Garamond text.
+   LAYOUT: one framed folio page; sections open as full folios with marginal notes and a ruled header. */
+:root{color-scheme:light dark;
+--paper:#f2e6c9;--paper2:#ead9b3;--card:#f7eed8;
+--ink:#33240f;--soft:#6b5537;--pen:#2f3f6b;
+--red:#7a1f17;--gold:#9a7425;--line:#9b8156;
+--hl:transparent;--hlink:#7a1f17;
+--note:#efe0bb;--note2:#e9dcbc;--note3:#efdcc4;--note4:#e4dcc4;
+--ok:#2f5d32;--no:#7a1f17;--mid:#8a5a12;
+--t1:#7a1f17;--t2:#2f3f6b;--t3:#7d6c52;
+--b0:#7a1f17;--b1:#2f3f6b;--b2:#2f5d32;--b3:#5b2b5e;--b4:#8a4b12;--b5:#2e5a5e;--b6:#6e2a3a;--b7:#6b5a1b}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-padding-top:84px}
+body{margin:0;color:var(--ink);font:19px/1.65 "EB Garamond",Georgia,"Times New Roman",serif;overflow-x:clip;
+background:var(--paper);background-image:radial-gradient(circle at 12% 18%,rgba(140,90,30,.10) 0 2px,transparent 3px),radial-gradient(circle at 78% 64%,rgba(140,90,30,.08) 0 3px,transparent 4px),radial-gradient(circle at 40% 85%,rgba(140,90,30,.07) 0 2px,transparent 3px),radial-gradient(ellipse at center,transparent 55%,rgba(90,55,15,.22) 100%);background-size:420px 380px,520px 470px,610px 540px,100% 100%;background-attachment:fixed}
+h1,h2,h3,.hand{font-family:"IM Fell English SC","IM Fell English",Georgia,serif;font-weight:400;line-height:1.1;margin:0;letter-spacing:.02em}
+h1{font-family:"IM Fell English SC","IM Fell English",Georgia,serif;font-size:clamp(34px,5.6vw,58px);text-wrap:balance;color:var(--ink);letter-spacing:.08em;text-transform:uppercase;line-height:1.15}
+h2{font-size:clamp(26px,3.6vw,34px);color:var(--red)}
+h3{font-size:24px}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,input:focus-visible,a:focus-visible,label:focus-within{outline:2px solid var(--gold);outline-offset:3px}
+.wrap{position:relative;z-index:1;max-width:1200px;margin:clamp(10px,2.5vw,32px) auto;padding:clamp(22px,3.5vw,48px) max(4vw,18px) 50px;border:3px double var(--line);outline:1px solid var(--line);outline-offset:6px;background:color-mix(in srgb,var(--paper) 70%,transparent)}
+.hl{color:var(--hlink);font-style:italic;background:none;padding:0}
+.cover{display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;margin-bottom:26px;padding-bottom:22px;border-bottom:1px solid var(--line);position:relative}
+.cover::before{content:"❦";display:block;color:var(--gold);font-size:28px;line-height:1}
+.cover::after{content:"";display:block;width:min(420px,70%);height:6px;border-top:1px solid var(--line);border-bottom:3px double var(--line);margin-top:4px}
+.by{color:var(--soft);margin:6px 0 0;font-size:18px;font-style:italic}
+.cover .by{font-family:"IM Fell English",serif;font-size:21px}
+.switch{display:inline-flex;border:1px solid var(--ink);padding:3px;background:var(--card);flex:none;border-radius:2px}
+.switch button{border:0;background:transparent;padding:6px 18px;min-height:44px;font-family:"IM Fell English SC",serif;font-size:19px;letter-spacing:.04em}
+.switch button[aria-pressed=true]{background:var(--ink);color:var(--paper)}
+.sticky{background:var(--note);padding:16px 18px 18px;border:1px solid var(--line);outline:1px solid var(--line);outline-offset:-5px;font-size:17px;line-height:1.55}
+.sticky b{font-family:"IM Fell English SC",serif;font-size:21px;font-weight:400;display:block;margin-bottom:4px;color:var(--red);letter-spacing:.03em}
+.notes{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(250px,100%),1fr));gap:18px;margin:6px 0 26px}
+.tg{display:inline-block;font-family:"IM Fell English SC",serif;font-size:14px;line-height:1.3;padding:1px 8px;border:1px solid;letter-spacing:.04em;white-space:nowrap}
+.tg.syllabus{color:var(--t1)}.tg.linked{color:var(--t2)}.tg.beyond{color:var(--t3)}
+.search{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:6px 0 14px}
+.search input{flex:1 1 260px;font:inherit;font-size:18px;padding:10px 14px;border:1px solid var(--line);border-bottom:2px solid var(--ink);background:var(--card);color:var(--ink);min-height:48px;border-radius:0}
+.search small{color:var(--soft);font-style:italic}
+.map{position:relative;padding:10px 0 20px}
+.map svg.wires{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+.centre{position:relative;margin:0 auto 26px;max-width:460px;text-align:center;border:3px double var(--ink);border-radius:999px;padding:24px 30px;background:var(--card)}
+.centre p{margin:4px 0 0;color:var(--soft);font-size:16px;font-style:italic}
+.limbs{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px 44px}
+.limb>.lt{display:inline-block;font-family:"IM Fell English SC",serif;font-size:26px;margin:0 0 12px;padding:2px 12px;color:var(--red);border-top:1px solid var(--red);border-bottom:1px solid var(--red);background:var(--paper)}
+.branch{position:relative;background:var(--card);border:1px solid var(--line);outline:1px solid var(--line);outline-offset:-5px;padding:14px 16px 16px;margin:0 0 18px}
+.branch h3{display:flex;gap:8px;align-items:baseline}
+.branch h3 .n{font-size:18px;color:var(--red);font-family:"IM Fell English",serif;font-style:italic}
+.branch h3 .n::before{content:"§ "}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.chip{border:1px solid var(--line);background:transparent;padding:6px 12px;font-size:17px;min-height:42px;text-align:left;line-height:1.2;border-radius:2px}
+.chip b{font-weight:400;margin-right:4px;font-family:"IM Fell English SC",serif}
+.chip.syllabus{border-color:var(--t1)}.chip.syllabus b{color:var(--t1)}
+.chip.linked{border-color:var(--t2)}.chip.linked b{color:var(--t2)}
+.chip.beyond{border-color:var(--t3);border-style:dotted}.chip.beyond b{color:var(--t3)}
+.chip.done::after{content:" ✓";color:var(--ok)}
+.chip.match{background:var(--ink);color:var(--paper);border-color:var(--ink)}.chip.match b{color:var(--paper)}
+.legend{color:var(--soft);font-size:16px;margin:6px 0 0;font-style:italic;text-align:center}
+.crumbs{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:0 0 10px;min-height:44px}
+.crumbs button{border:1px solid var(--line);background:var(--card);padding:6px 14px;min-height:40px;font-family:"IM Fell English SC",serif;font-size:17px;border-radius:2px}
+.crumbs span{color:var(--soft)}
+.crumbs button[aria-current]{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+.stage{position:relative;transition:height .25s}
+.ddw{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.ddw path{stroke-width:1.4!important;stroke-dasharray:none}
+.bub{position:absolute;transform:translate(-50%,-50%);border:3px double var(--c);background:var(--card);color:var(--ink);border-radius:999px;padding:12px 20px;text-align:center;line-height:1.12;cursor:pointer;width:var(--w);min-height:70px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:3px}
+.bub .h{font-family:"IM Fell English SC",serif;font-size:19px;color:var(--c);letter-spacing:.02em}
+.bub .s{font-size:14px;color:var(--soft);font-style:italic}
+.bub.sec .h{font-family:"IM Fell English",serif;font-size:25px}
+.bub.centre{border-radius:50%;border:4px double var(--ink);cursor:default;min-height:92px;outline:1px solid var(--ink);outline-offset:4px}
+.bub.centre .h{color:var(--ink);font-family:"IM Fell English SC",serif;font-size:30px;letter-spacing:.05em}
+.bub.centre.clickable{cursor:pointer}
+.bub .dot{width:9px;height:9px;border-radius:50%;display:inline-block;margin-right:4px;vertical-align:1px;font-style:normal}
+.dot.syllabus{background:var(--t1)}.dot.linked{background:var(--t2)}.dot.beyond{background:var(--t3)}
+.kcard{position:relative;margin:6px auto 0;max-width:640px;background:var(--card);padding:22px 26px 24px;border:3px double var(--c);outline:1px solid var(--line);outline-offset:5px}
+.kcard h2{color:var(--c)}
+.kcard ul{margin:10px 0;padding-left:22px}.kcard li{margin:6px 0;font-size:20px}
+.kcard li::marker{content:"¶ ";color:var(--gold)}
+.kcard .why{margin:8px 0 12px;font-size:17px}
+.kcard .acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+@media(prefers-reduced-motion:no-preference){.bub{animation:fade .4s ease-out both}@keyframes fade{from{opacity:0;transform:translate(-50%,-50%) scale(.92)}to{opacity:1;transform:translate(-50%,-50%) scale(1)}}.kcard{animation:fadec .4s ease-out both}@keyframes fadec{from{opacity:0}to{opacity:1}}}
+.bub:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.whybox{background:var(--note3);border-left:3px solid var(--red);padding:12px 16px;font-size:19px;font-style:italic}
+.flow{display:flex;flex-direction:column;gap:0}
+.fs{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:10px;align-items:stretch;position:relative;padding-bottom:16px}
+.fs::after{content:"";position:absolute;left:28px;bottom:0;height:16px;border-left:1.5px solid var(--ink)}
+.fq{background:var(--card);border:3px double var(--ink);padding:10px 12px 10px 46px;position:relative}
+.fn{position:absolute;left:10px;top:10px;width:26px;height:26px;border:1px solid var(--ink);border-radius:50%;color:var(--ink);display:flex;align-items:center;justify-content:center;font-family:"IM Fell English",serif;font-size:16px}
+.fa{display:flex;flex-direction:column;gap:6px;justify-content:center}
+.fy,.fx{border:1px solid var(--line);padding:6px 10px;font-size:17px;background:var(--card)}
+.fy b{color:var(--ok);font-weight:400;font-family:"IM Fell English SC",serif}.fx b{color:var(--no);font-weight:400;font-family:"IM Fell English SC",serif}
+.fc{color:var(--soft);font-style:italic}
+.fend{background:var(--note2);border:3px double var(--ok);padding:10px 14px;font-size:19px}
+.reader{position:fixed;inset:0;z-index:5;overflow-y:auto;background:var(--paper);background-image:radial-gradient(ellipse at center,transparent 60%,rgba(90,55,15,.2) 100%);display:none}
+.reader.open{display:block}
+.rbar{position:sticky;top:0;z-index:6;display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:10px max(4vw,14px);background:var(--paper2);border-bottom:3px double var(--line)}
+.rbar .sp{flex:1}
+.btn{border:1px solid var(--ink);background:var(--card);padding:8px 14px;min-height:44px;font-family:"IM Fell English SC",serif;font-size:18px;letter-spacing:.03em;border-radius:2px}
+.btn.pri{background:var(--ink);color:var(--paper)}
+.btn:disabled{opacity:.4;cursor:default}
+.rwrap{max-width:900px;margin:18px auto 40px;padding:28px max(5vw,20px) 60px;position:relative;border:3px double var(--line);outline:1px solid var(--line);outline-offset:6px;background:color-mix(in srgb,var(--paper) 75%,transparent)}
+.badge{display:inline-block;font-family:"IM Fell English SC",serif;font-size:22px;color:var(--red);border-top:1px solid var(--red);border-bottom:1px solid var(--red);padding:0 8px;margin:0 8px 6px 0}
+.badge::before{content:"§ "}
+#rtitle{font-family:"IM Fell English",serif;font-size:clamp(34px,5vw,48px);color:var(--ink)}
+.toc{display:flex;gap:4px 16px;flex-wrap:wrap;margin:14px 0 6px;padding:10px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.toc a{color:var(--pen);font-size:16px;text-decoration:none;font-family:"IM Fell English SC",serif}
+.blk{margin:32px 0}
+.blk>h2,.baredd>summary h2{margin-bottom:10px;display:block;padding:0 0 6px;border-bottom:1px solid var(--line)}
+.blk>h2::before,.baredd>summary h2::before{content:"¶ ";color:var(--gold)}
+.simple{font-size:21px;line-height:1.6}
+.simple::first-letter{font-family:"IM Fell English",serif;float:left;font-size:72px;line-height:.8;padding:6px 8px 0 0;color:var(--red)}
+.deep li{margin:10px 0}.deep p{margin:8px 0}.deep ul{margin:6px 0}
+.cmp{border-collapse:collapse;width:100%;margin:10px 0;font-size:17px}.cmp th,.cmp td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}
+.vs th{background:var(--note);font-family:"IM Fell English SC",serif;font-weight:400}.vs td:first-child{color:var(--red);width:22%;font-style:italic}
+.scroll{overflow-x:auto}
+.bare{background:var(--card);border:3px double var(--line);padding:18px 22px;font-family:"IM Fell English",Georgia,serif;font-size:19px;line-height:1.75}
+.bare .src{font-family:"IM Fell English SC",serif;font-size:15px;color:var(--soft);display:block;margin-bottom:8px;text-align:center;border-bottom:1px solid var(--line);padding-bottom:6px}
+.fixnote{font-size:16px;color:var(--soft);border-left:2px solid var(--red);padding:2px 0 2px 10px;margin:10px 0;font-style:italic}
+.mk{color:var(--red);border-bottom:1px solid var(--red);cursor:pointer;background:none}
+.mk sup{font-family:"EB Garamond",serif;font-size:12px;color:var(--red);margin-left:2px}
+.dnotes{margin:12px 0 0;padding:0;list-style:none}
+.dnotes li{display:grid;grid-template-columns:34px minmax(0,1fr);gap:8px;padding:8px 6px;border-top:1px solid var(--line)}
+.dnotes li.on{background:var(--note)}
+.dnotes .k{color:var(--red);font-family:"IM Fell English",serif;font-size:20px;font-style:italic}
+.dnotes .hl{font-style:normal;color:var(--ink);font-family:"IM Fell English",serif}
+.master{background:var(--note2);border:1px solid var(--line);outline:1px solid var(--line);outline-offset:-5px;padding:18px 20px}
+.master .story{font-size:19px;margin:6px 0 12px;font-style:italic}
+.master ol{margin:0;padding-left:24px}
+.master li{margin:8px 0}
+.master li b{display:block;color:var(--red);font-weight:400;font-family:"IM Fell English",serif;font-style:italic}
+.panels{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(250px,100%),1fr));gap:14px}
+.panel{background:var(--card);border:1px solid var(--line);padding:12px 14px;display:flex;flex-direction:column;gap:6px}
+.panel .pk{font-family:"IM Fell English SC",serif;font-size:20px;line-height:1.15;color:var(--red)}
+.panel p{margin:0}
+.vd{align-self:flex-start;font-family:"IM Fell English SC",serif;font-size:15px;padding:1px 10px;border:1px solid}
+.vd.y{color:var(--ok)}.vd.n{color:var(--no)}.vd.m{color:var(--mid)}
+.why{color:var(--soft);font-size:17px;font-style:italic}
+.exam{background:var(--note);border:3px double var(--ink);padding:16px 20px}
+.exam .line{font-size:20px;border-top:1px solid var(--ink);margin-top:10px;padding-top:8px;font-style:italic}
+.quiz .q{background:var(--card);border:1px solid var(--line);padding:12px 14px;margin:12px 0}
+.quiz .opts{display:flex;flex-direction:column;gap:8px;margin-top:8px}
+.quiz .opts button{text-align:left;border:1px solid var(--line);background:transparent;padding:8px 12px;min-height:44px;border-radius:0}
+.quiz .opts button.ok{border-color:var(--ok);color:var(--ok)}
+.quiz .opts button.no{border-color:var(--no);color:var(--no)}
+.quiz .ans{margin-top:8px;color:var(--soft);font-style:italic}
+.links{list-style:none;padding:0;margin:0}
+.links li{padding:8px 0;border-top:1px solid var(--line)}
+.links b{color:var(--red);font-weight:400;font-family:"IM Fell English SC",serif}
+.next{background:var(--note4);padding:14px 16px;border-top:3px double var(--line);border-bottom:3px double var(--line)}
+.next .hand{color:var(--red)}
+.mark{display:flex;gap:10px;align-items:center;min-height:44px;font-size:18px;font-style:italic}
+.mark input{width:22px;height:22px;accent-color:var(--red)}
+.foot{color:var(--soft);font-size:15px;margin-top:30px;border-top:1px solid var(--line);padding-top:10px;text-align:center;font-style:italic}
+.baredd>summary{list-style:none;cursor:pointer;display:block;min-height:44px}
+.baredd>summary::-webkit-details-marker{display:none}
+.baredd>summary h2::after{content:"  (open)";font-family:"EB Garamond",serif;font-size:16px;color:var(--soft);font-style:italic}
+.baredd[open]>summary h2::after{content:"  (close)"}
+[hidden]{display:none!important}
+@media(max-width:860px){.limbs{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:600px){body{font-size:18px}.simple{font-size:19px}.rbar{gap:6px;padding:8px 10px}.rbar .btn{font-size:15px;padding:6px 10px}.fs{grid-template-columns:minmax(0,1fr)}.bub .h{font-size:19px}.bub.sec .h{font-size:22px}.bub .s{font-size:13px}.wrap{outline-offset:3px}.rwrap{outline-offset:3px;margin:10px 6px 30px}}
+@media print{.search,.rbar,.switch{display:none}.reader{position:static;display:block}}
+</style>

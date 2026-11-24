@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Transfer of Property Act, 1882</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+<style>
+/* VOICE: a careful law student's own revision notebook, warm and plain, never messy.
+   IDEA: a ruled notebook page with a hand-drawn mind map, sticky notes and highlighter.
+   PICTURE: the map itself; each section opens into a full notebook page with stories.
+   COLOUR and TYPE: white ruled paper, blue pen ink, red margin, yellow highlighter; Caveat headings, Patrick Hand body.
+   LAYOUT: cover strip with view switch, then the map; sections open as full pages with prev and next. */
+:root{color-scheme:light dark;
+--paper:light-dark(#fdfdf8,#141a24);--rule:light-dark(#dbe6f2,#223044);--margin:light-dark(#e8a0a0,#7a3a44);
+--ink:light-dark(#1d2a44,#e6ecf5);--soft:light-dark(#4d5b74,#a9b6c9);--pen:light-dark(#1f4fa8,#8fb4ff);
+--red:light-dark(#c0302b,#ff8a80);--hl:light-dark(#fff07a,#6b5d10);--hlink:light-dark(#1d2a44,#fff6c2);
+--note:light-dark(#fff6b8,#3b3514);--note2:light-dark(#d9f2e3,#173326);--note3:light-dark(#fde2e2,#3a1d22);--note4:light-dark(#e3ecff,#1b2640);
+--card:light-dark(#ffffff,#1b2331);--line:light-dark(#9fb2cc,#4a5d7a);--ok:light-dark(#1d7a46,#7fe0a6);--no:light-dark(#b3261e,#ff9a92);--mid:light-dark(#9a6a00,#f5c56b);
+--t1:light-dark(#c0302b,#ff8a80);--t2:light-dark(#1f4fa8,#8fb4ff);--t3:light-dark(#7b8798,#8a96a8)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-padding-top:84px}
+body{margin:0;color:var(--ink);font:18px/1.6 "Patrick Hand","Comic Sans MS",system-ui,sans-serif;overflow-x:clip;
+background:var(--paper) repeating-linear-gradient(transparent 0 31px,var(--rule) 31px 32px)}
+body::before{content:"";position:fixed;top:0;bottom:0;left:clamp(14px,4vw,56px);border-left:2px solid var(--margin);pointer-events:none;z-index:0}
+h1,h2,h3,.hand{font-family:Caveat,"Patrick Hand",cursive;font-weight:700;line-height:1.05;margin:0}
+h1{font-size:clamp(38px,6vw,56px);text-wrap:balance}
+h2{font-size:clamp(28px,4vw,38px)}
+h3{font-size:25px}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,input:focus-visible,a:focus-visible,label:focus-within{outline:3px solid var(--pen);outline-offset:2px}
+.wrap{position:relative;z-index:1;max-width:1240px;margin:0 auto;padding:clamp(20px,3vw,40px) max(5vw,20px) 60px clamp(30px,6vw,80px)}
+.hl{background:linear-gradient(transparent 45%,var(--hl) 45% 92%,transparent 92%);color:var(--hlink);padding:0 2px}
+.cover{display:flex;flex-wrap:wrap;gap:16px 28px;align-items:flex-end;justify-content:space-between;margin-bottom:22px}
+.by{color:var(--soft);margin:8px 0 0;font-size:17px}
+.switch{display:inline-flex;border:2px solid var(--ink);border-radius:999px;padding:3px;background:var(--card);flex:none}
+.switch button{border:0;background:transparent;border-radius:999px;padding:8px 18px;min-height:44px;font-size:18px}
+.switch button[aria-pressed=true]{background:var(--ink);color:var(--paper)}
+.sticky{background:var(--note);padding:14px 16px 16px;border-radius:2px 2px 10px 2px;box-shadow:0 6px 14px -8px rgba(0,0,0,.45);transform:rotate(-1.2deg);font-size:16px;line-height:1.5}
+.sticky.g{background:var(--note2);transform:rotate(1deg)}.sticky.p{background:var(--note3);transform:rotate(-.5deg)}.sticky.b{background:var(--note4);transform:rotate(.6deg)}
+.sticky b{font-family:Caveat,cursive;font-size:22px;font-weight:700;display:block;margin-bottom:2px}
+.notes{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(250px,100%),1fr));gap:18px;margin:6px 0 24px}
+.tg{display:inline-block;font-size:13px;line-height:1.3;padding:1px 8px;border-radius:999px;border:1.5px solid;white-space:nowrap}
+.tg.syllabus{color:var(--t1)}.tg.linked{color:var(--t2)}.tg.beyond{color:var(--t3)}
+.search{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:6px 0 14px}
+.search input{flex:1 1 260px;font:inherit;font-size:18px;padding:10px 14px;border:2px dashed var(--line);border-radius:12px;background:var(--card);color:var(--ink);min-height:48px}
+.search small{color:var(--soft)}
+.map{position:relative;padding:10px 0 20px}
+.map svg.wires{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+.centre{position:relative;margin:0 auto 26px;max-width:440px;text-align:center;border:3px solid var(--ink);border-radius:48% 52% 46% 54%/56% 44% 56% 44%;padding:22px 26px;background:var(--card)}
+.centre p{margin:4px 0 0;color:var(--soft);font-size:16px}
+.limbs{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px 44px}
+.limb>.lt{position:relative;z-index:1;display:inline-block;font-family:Caveat,cursive;font-size:30px;font-weight:700;margin:0 0 12px;padding:2px 10px;border:2px solid var(--red);color:var(--red);border-radius:10px;transform:rotate(-1deg);background:var(--paper)}
+.branch{position:relative;background:var(--card);border:2px solid var(--line);border-radius:14px 18px 12px 16px;padding:12px 14px 14px;margin:0 0 18px}
+.branch h3{display:flex;gap:8px;align-items:baseline}
+.branch h3 .n{font-size:18px;color:var(--red);font-family:"Patrick Hand",sans-serif}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.chip{border:1.5px solid var(--line);background:transparent;border-radius:999px;padding:6px 12px;font-size:16px;min-height:42px;text-align:left;line-height:1.2}
+.chip b{font-weight:400;margin-right:4px}
+.chip.syllabus{border-color:var(--t1)}.chip.syllabus b{color:var(--t1)}
+.chip.linked{border-color:var(--t2)}.chip.linked b{color:var(--t2)}
+.chip.beyond{border-color:var(--t3);border-style:dashed}.chip.beyond b{color:var(--t3)}
+.chip.done::after{content:" ✓";color:var(--ok)}
+.chip.match{background:var(--hl);color:var(--hlink);border-color:var(--ink)}
+.legend{color:var(--soft);font-size:15px;margin:4px 0 0}
+.crisp{border:2px dashed var(--line);border-radius:16px;padding:28px;text-align:center;background:var(--card);margin-top:10px}
+.crisp p{color:var(--soft)}
+:root{--b0:light-dark(#c0302b,#ff8a80);--b1:light-dark(#1f4fa8,#8fb4ff);--b2:light-dark(#1d7a46,#7fe0a6);--b3:light-dark(#7a3fb0,#cfa6ff);--b4:light-dark(#c25e00,#ffb470);--b5:light-dark(#0f7d86,#6fe0e8);--b6:light-dark(#a3306b,#ff9ccc);--b7:light-dark(#6b5b12,#e3cf6a)}
+.crumbs{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:0 0 10px;min-height:44px}
+.crumbs button{border:1.5px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;min-height:40px;font-size:16px}
+.crumbs span{color:var(--soft)}
+.crumbs button[aria-current]{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+.stage{position:relative;transition:height .25s}
+.ddw{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.bub{position:absolute;transform:translate(-50%,-50%);border:2.5px solid var(--c);background:var(--card);color:var(--ink);border-radius:46% 54% 52% 48%/55% 45% 55% 45%;padding:10px 14px;text-align:center;line-height:1.15;cursor:pointer;width:var(--w);min-height:64px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:2px;box-shadow:3px 4px 0 -1px var(--c)}
+.bub .h{font-family:Caveat,cursive;font-weight:700;font-size:23px;color:var(--c)}
+.bub .s{font-size:14px;color:var(--soft)}
+.bub.sec .h{font-size:26px}
+.bub.centre{border-color:var(--ink);box-shadow:4px 5px 0 -1px var(--ink);cursor:default;min-height:84px}
+.bub.centre .h{color:var(--ink);font-size:30px}
+.bub.centre.clickable{cursor:pointer}
+.bub .dot{width:10px;height:10px;border-radius:50%;display:inline-block;margin-right:4px;vertical-align:1px}
+.dot.syllabus{background:var(--t1)}.dot.linked{background:var(--t2)}.dot.beyond{background:var(--t3)}
+.kcard{position:relative;margin:6px auto 0;max-width:620px;background:var(--note);border-radius:3px 3px 16px 3px;padding:18px 20px 20px;box-shadow:0 8px 18px -10px rgba(0,0,0,.5);transform:rotate(-.6deg);border-top:6px solid var(--c)}
+.kcard h2{color:var(--c)}
+.kcard ul{margin:10px 0;padding-left:22px}.kcard li{margin:6px 0;font-size:19px}
+.kcard .why{margin:8px 0 12px;font-size:16px}
+.kcard .acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+@media(prefers-reduced-motion:no-preference){.bub,.kcard{animation:pop .32s ease-out both}@keyframes pop{from{opacity:0;transform:translate(-50%,-50%) scale(.6)}to{opacity:1;transform:translate(-50%,-50%) scale(1)}}.kcard{animation-name:popc}@keyframes popc{from{opacity:0;transform:rotate(-.6deg) scale(.85)}to{opacity:1;transform:rotate(-.6deg) scale(1)}}}
+.bub:focus-visible{outline:3px solid var(--pen);outline-offset:3px}
+.whybox{background:var(--note3);border-radius:4px 4px 14px 4px;padding:14px 16px;font-size:19px;box-shadow:0 6px 14px -9px rgba(0,0,0,.45)}
+.flow{display:flex;flex-direction:column;gap:0}
+.fs{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:10px;align-items:stretch;position:relative;padding-bottom:16px}
+.fs::after{content:"";position:absolute;left:28px;bottom:0;height:16px;border-left:2.5px solid var(--ink)}
+.fq{background:var(--card);border:2.5px solid var(--ink);border-radius:14px;padding:10px 12px 10px 44px;position:relative}
+.fn{position:absolute;left:10px;top:9px;width:26px;height:26px;border-radius:50%;background:var(--ink);color:var(--paper);display:flex;align-items:center;justify-content:center;font-size:15px}
+.fa{display:flex;flex-direction:column;gap:6px;justify-content:center}
+.fy,.fx{border:1.5px dashed var(--line);border-radius:10px;padding:6px 10px;font-size:16px}
+.fy b{color:var(--ok);font-weight:400}.fx b{color:var(--no);font-weight:400}
+.fc{color:var(--soft)}
+.fend{background:var(--note2);border:2.5px solid var(--ok);border-radius:14px;padding:10px 14px;font-size:18px}
+.vs th{background:var(--note)}.vs td:first-child{color:var(--pen);width:22%}
+.scroll{overflow-x:auto}
+.baredd>summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:baseline;gap:10px;min-height:44px}
+.baredd>summary::-webkit-details-marker{display:none}
+.baredd>summary h2{display:inline-block;background:linear-gradient(transparent 60%,var(--hl) 60% 95%,transparent 95%);color:var(--hlink);padding:0 4px}
+.baredd>summary h2::before{content:"+ ";color:var(--red)}
+.baredd[open]>summary h2::before{content:"− "}
+@media(max-width:600px){.fs{grid-template-columns:minmax(0,1fr)}.bub .h{font-size:20px}.bub.sec .h{font-size:23px}.bub .s{font-size:13px}}
+.reader{position:fixed;inset:0;z-index:5;overflow-y:auto;background:var(--paper) repeating-linear-gradient(transparent 0 31px,var(--rule) 31px 32px);display:none}
+.reader.open{display:block}
+.rbar{position:sticky;top:0;z-index:6;display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:10px max(4vw,14px);background:var(--paper);border-bottom:2px dashed var(--line)}
+.rbar .sp{flex:1}
+.btn{border:2px solid var(--ink);background:var(--card);border-radius:12px;padding:8px 14px;min-height:44px;font-size:17px}
+.btn.pri{background:var(--ink);color:var(--paper)}
+.btn:disabled{opacity:.4;cursor:default}
+.rwrap{max-width:880px;margin:0 auto;padding:24px max(5vw,18px) 80px clamp(30px,6vw,70px);position:relative}
+.badge{display:inline-block;font-family:Caveat,cursive;font-size:24px;font-weight:700;color:var(--red);border:2px solid var(--red);border-radius:10px;padding:0 10px;transform:rotate(-2deg);margin:0 8px 6px 0}
+.toc{display:flex;gap:4px 14px;flex-wrap:wrap;margin:14px 0 6px}
+.toc a{color:var(--pen);font-size:15px;border-bottom:1.5px dashed var(--pen);text-decoration:none}
+.blk{margin:30px 0}
+.blk>h2{margin-bottom:10px;display:inline-block;background:linear-gradient(transparent 60%,var(--hl) 60% 95%,transparent 95%);color:var(--hlink);padding:0 4px}
+.simple{font-size:21px;line-height:1.55;border-left:4px solid var(--pen);padding:4px 0 4px 14px}
+.deep li{margin:10px 0}.deep p{margin:8px 0}.deep ul{margin:6px 0}
+.cmp{border-collapse:collapse;width:100%;margin:10px 0;font-size:16px}.cmp th,.cmp td{border:1.5px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+.bare{background:var(--card);border:2px solid var(--line);border-radius:10px;padding:14px 18px;font-family:Georgia,"Times New Roman",serif;font-size:17px;line-height:1.75}
+.bare .src{font-family:"Patrick Hand",sans-serif;font-size:14px;color:var(--soft);display:block;margin-bottom:6px}
+.fixnote{font-size:15px;color:var(--soft);border-left:3px solid var(--red);padding:2px 0 2px 10px;margin:10px 0}
+.mk{background:var(--hl);color:var(--hlink);padding:0 3px;border-radius:3px;cursor:pointer}
+.mk sup{font-family:"Patrick Hand",sans-serif;font-size:12px;color:var(--red);margin-left:2px}
+.dnotes{margin:12px 0 0;padding:0;list-style:none}
+.dnotes li{display:grid;grid-template-columns:30px minmax(0,1fr);gap:8px;padding:8px 6px;border-top:1.5px dashed var(--line)}
+.dnotes li.on{background:var(--note)}
+.dnotes .k{color:var(--red);font-family:Caveat,cursive;font-size:22px;font-weight:700}
+.master{background:var(--note2);border-radius:4px 4px 14px 4px;padding:16px 18px;box-shadow:0 6px 14px -9px rgba(0,0,0,.45)}
+.master .story{font-size:18px;margin:6px 0 12px}
+.master ol{margin:0;padding-left:22px}
+.master li{margin:8px 0}
+.master li b{display:block;color:var(--pen);font-weight:400}
+.panels{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(250px,100%),1fr));gap:14px}
+.panel{background:var(--card);border:2px solid var(--line);border-radius:12px 16px 10px 14px;padding:12px 14px;display:flex;flex-direction:column;gap:6px}
+.panel .pk{font-family:Caveat,cursive;font-size:22px;font-weight:700;line-height:1.1}
+.panel p{margin:0}
+.vd{align-self:flex-start;font-size:15px;padding:1px 10px;border-radius:999px;border:1.5px solid}
+.vd.y{color:var(--ok)}.vd.n{color:var(--no)}.vd.m{color:var(--mid)}
+.why{color:var(--soft);font-size:16px}
+.exam{background:var(--note);border:2px dashed var(--ink);border-radius:12px;padding:14px 18px}
+.exam .line{font-size:20px;border-top:2px solid var(--ink);margin-top:10px;padding-top:8px}
+.quiz .q{background:var(--card);border:2px solid var(--line);border-radius:12px;padding:12px 14px;margin:12px 0}
+.quiz .opts{display:flex;flex-direction:column;gap:8px;margin-top:8px}
+.quiz .opts button{text-align:left;border:1.5px solid var(--line);background:transparent;border-radius:10px;padding:8px 12px;min-height:44px}
+.quiz .opts button.ok{border-color:var(--ok);color:var(--ok)}
+.quiz .opts button.no{border-color:var(--no);color:var(--no)}
+.quiz .ans{margin-top:8px;color:var(--soft)}
+.links{list-style:none;padding:0;margin:0}
+.links li{padding:8px 0;border-top:1.5px dashed var(--line)}
+.links b{color:var(--pen);font-weight:400}
+.next{background:var(--note4);padding:14px 16px;border-radius:4px 4px 12px 4px}
+.mark{display:flex;gap:10px;align-items:center;min-height:44px;font-size:18px}
+.mark input{width:22px;height:22px}
+.foot{color:var(--soft);font-size:15px;margin-top:30px;border-top:2px dashed var(--line);padding-top:10px}
+[hidden]{display:none!important}
+@media(max-width:860px){.limbs{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:600px){body{font-size:17px}.simple{font-size:19px}.rbar{gap:6px;padding:8px 10px}.rbar .btn{font-size:15px;padding:6px 10px}.switch button{padding:8px 14px;font-size:17px}}
+@media(prefers-reduced-motion:no-preference){.chip{transition:transform .15s}.chip:hover{transform:rotate(-1.5deg) scale(1.03)}}
+@media print{body::before,.search,.rbar,.switch{display:none}.reader{position:static;display:block}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="cover">
+    <div>
+      <h1>Transfer of Property Act, 1882</h1>
+      <p class="by">by <span class="hl">Madhi Lokanath</span></p>
+    </div>
+    <div class="switch" role="group" aria-label="Choose a view">
+      <button id="vMap" aria-pressed="true">Mind map</button>
+      <button id="vDet" aria-pressed="false">Detailed</button>
+    </div>
+  </header>
+
+  <section id="crispView">
+    <nav class="crumbs" id="crumbs" aria-label="Where you are"></nav>
+    <div class="stage" id="stage"><svg class="ddw" id="ddw" aria-hidden="true"></svg><div id="nodes"></div></div>
+    <p class="legend">Tap a branch to open it, then tap a section to see its key points. Every section has a full page in the Detailed view.</p>
+  </section>
+
+  <section id="detView" hidden>
+    <div class="notes">
+      <div class="sticky"><b>How to use this</b>Tap any section to open its page: simple words, full explanation, the exact bare act broken down phrase by phrase, a master illustration that tests every part of the section, an illustration for each element, an exam box, a quiz and linked sections. Use Next to read straight through.</div>
+      <div class="sticky g"><b>The family in every story</b>A = Raghunath, grandfather and owner. B = Arjun, his son. C = Rohan, Arjun's son (often not yet born). Meera is Raghunath's daughter, Kabir a family friend, Ramesh a shopkeeper and tenant, Suresh a seller, Das a borrower, Priya a witness.</div>
+      <div class="sticky b"><b>Colour of each section</b><span class="tg syllabus">In syllabus</span> named in the LW 3019 syllabus. <span class="tg linked">Linked</span> not named, but taught with it. <span class="tg beyond">Beyond syllabus</span> in s.5–55 but not in the syllabus. s.3 and s.56 are added because the syllabus names them.</div>
+    </div>
+
+    <div class="search">
+      <input id="q" type="search" placeholder="Search: 53A, lis pendens, minor, unborn, cy-pres…" aria-label="Search sections" autocomplete="off">
+      <small id="qinfo">54 sections · tap to open</small>
+    </div>
+
+    <section class="map" id="map" aria-label="Map of sections">
+      <svg class="wires" id="wires" aria-hidden="true"></svg>
+      <div class="centre" id="centre"><h2>TPA Chapter II</h2><p>Of transfers of property by act of parties · with s.3 and s.56</p></div>
+      <div class="limbs">
+        <div class="limb"><span class="lt">Part A · All property</span><div id="partA"></div></div>
+        <div class="limb"><span class="lt">Part B · Immovable property</span><div id="partB"></div></div>
+      </div>
+      <p class="legend">A tick shows sections you have marked as revised on this device.</p>
+    </section>
+    <p class="foot">Section text checked word by word against the Government bare act (Delhi District Courts copy) and the Indian Kanoon copy; errors in the Indian Kanoon copy are corrected and flagged on each page.</p>
+  </section>
+</div>
+
+<div class="reader" id="reader" role="dialog" aria-modal="true" aria-labelledby="rtitle">
+  <div class="rbar">
+    <button class="btn" id="back">Back to map</button>
+    <span class="sp"></span>
+    <button class="btn" id="prev">Previous</button>
+    <button class="btn pri" id="nxt">Next</button>
+  </div>
+  <div class="rwrap" id="rbody"></div>
+</div>
+
+<script id="data" type="application/json">/*DATA*/</script>
+<script id="mmdata" type="application/json">/*MM*/</script>
+<script>
+{
+const S=JSON.parse(document.getElementById('data').textContent);
+const BR=[
+{p:"A",t:"Key words",s:["3"]},
+{p:"A",t:"What is a transfer",s:["5"]},
+{p:"A",t:"What and who",s:["6","7"]},
+{p:"A",t:"How a transfer works",s:["8","9"]},
+{p:"A",t:"Conditions the law cancels",s:["10","11","12"]},
+{p:"A",t:"Unborn person and perpetuity",s:["13","14","15","16","17","18","20"]},
+{p:"A",t:"Vested and contingent",s:["19","21","22","23","24"]},
+{p:"A",t:"Conditional transfers",s:["25","26","27","28","29","30","31","32","33","34"]},
+{p:"A",t:"Election",s:["35"]},
+{p:"A",t:"Apportionment",s:["36","37"]},
+{p:"B",t:"Protecting third parties",s:["38","39","40"]},
+{p:"B",t:"Protecting honest buyers",s:["41","42","43","48","50","51"]},
+{p:"B",t:"Co-owners",s:["44","45","46","47"]},
+{p:"B",t:"Insurance money",s:["49"]},
+{p:"B",t:"Pending cases, fraud, part performance",s:["52","53","53A"]},
+{p:"B",t:"Sale",s:["54","55","56"]}];
+const T={"3":"Interpretation clause","5":"What is a transfer","6":"What can be transferred","7":"Who can transfer","8":"What passes to the buyer","9":"Oral transfer","10":"\"Never sell\" conditions","11":"\"Use it only this way\" directions","12":"\"Lose it if bankrupt\" conditions","13":"Transfer to an unborn person","14":"Rule against perpetuity","15":"Class gift","16":"Later gift falls with earlier one","17":"Accumulation of income","18":"Perpetuity for public benefit","19":"Vested interest","20":"Unborn child's right at birth","21":"Contingent interest","22":"Class that must reach an age","23":"Uncertain event, no time fixed","24":"Whoever survives","25":"Conditional transfer","26":"Condition precedent: cy-près","27":"Acceleration: gift over on failure","28":"Gift over on an event","29":"Condition subsequent","30":"Bad later gift, good earlier gift","31":"Interest ending on an event","32":"Ending condition must be lawful","33":"Act with no time fixed","34":"Fraud preventing the act","35":"Election","36":"Apportionment by time","37":"Apportionment of obligations","38":"Transfer under limited authority","39":"Maintenance holder's rights","40":"Restrictions and obligations on land","41":"Ostensible owner","42":"Power to revoke an earlier transfer","43":"Feeding the grant by estoppel","44":"One co-owner transfers","45":"Joint purchase","46":"Joint sellers, distinct interests","47":"Co-owners selling a share","48":"Priority: first in time","49":"Fire insurance money","50":"Rent paid in good faith","51":"Improvements by honest holder","52":"Lis pendens","53":"Fraudulent transfer","53A":"Part performance","54":"Sale","55":"Buyer and seller duties","56":"Marshalling by later buyer"};
+const TAGL={syllabus:"In syllabus",linked:"Linked",beyond:"Beyond syllabus"};
+const VD={y:"Applies / valid",n:"Fails / not covered",m:"Mixed"};
+const ORDER=BR.flatMap(b=>b.s);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c]));
+const plain=h=>String(h).replace(/<[^>]+>/g,' ').toLowerCase();
+let done={};try{done=JSON.parse(localStorage.getItem("tpa-done")||"{}")}catch(e){done={}}
+function setHash(h){try{if(location.hash!==h)history.replaceState(null,"",h)}catch(e){}}
+const save=()=>{try{localStorage.setItem("tpa-done",JSON.stringify(done))}catch(e){}};
+
+function chip(id){const s=S[id];return `<button class="chip ${s.tag}${done[id]?" done":""}" data-s="${id}"><b>s.${id}</b>${esc(T[id])}</button>`}
+function drawMap(){
+ const html=p=>BR.map((b,i)=>b.p!==p?"":`<div class="branch"><h3><span class="n">${i+1}</span>${esc(b.t)}</h3><div class="chips">${b.s.map(chip).join("")}</div></div>`).join("");
+ document.getElementById("partA").innerHTML=html("A");
+ document.getElementById("partB").innerHTML=html("B");
+ wires();
+}
+function wires(){
+ const map=document.getElementById("map"),svg=document.getElementById("wires"),c=document.getElementById("centre");
+ if(!map.offsetParent)return;
+ const M=map.getBoundingClientRect(),C=c.getBoundingClientRect();
+ const cx=C.left+C.width/2-M.left,cy=C.bottom-M.top;
+ const one=window.innerWidth<=860;const els=[...document.querySelectorAll(".branch")];let d="";
+ if(one){
+  if(!els.length)return;
+  const xs=els.map(el=>el.getBoundingClientRect().left-M.left);const tx=Math.max(3,Math.min(...xs)-12);
+  const ys=els.map(el=>el.getBoundingClientRect().top-M.top+26);
+  d=`M${cx} ${cy} C ${cx} ${cy+24}, ${tx} ${cy+8}, ${tx} ${cy+40} L ${tx} ${ys[ys.length-1]} `;
+  ys.forEach((y,i)=>{d+=`M${tx} ${y} L ${xs[i]} ${y} `});
+ }else{
+  els.forEach((el,i)=>{
+   const R=el.getBoundingClientRect();
+   const left=R.left+R.width/2<M.left+M.width/2;
+   const x=left?R.right-M.left:R.left-M.left;
+   const y=R.top-M.top+28;const j=(i%3-1)*6;
+   d+=`M${cx} ${cy} C ${cx+j} ${(cy+y)/2}, ${x+(left?40:-40)} ${y+j}, ${x} ${y} `;
+  });
+ }
+ svg.innerHTML=`<path d="${d}" fill="none" stroke="var(--line)" stroke-width="2" stroke-linecap="round"/>`;
+}
+function dnotes(s){return `<ul class="dnotes">${s.dissect.map((x,i)=>`<li data-k="${i+1}"><span class="k">${i+1}</span><span><b style="font-weight:400" class="hl">${esc(x[0])}</b><br>${esc(x[1])}</span></li>`).join("")}</ul>`}
+function flow(f){
+ const st=f.steps.map(x=>x.length===2?[x[0],">",x[1]]:x);
+ const out=v=>v===">"?"":`<span class="fo">${esc(v)}</span>`;
+ return `<div class="flow">${st.map((x,i)=>`<div class="fs"><div class="fq"><span class="fn">${i+1}</span>${esc(x[0])}</div><div class="fa"><div class="fy"><b>Yes</b> ${x[1]===">"?"<span class='fc'>go on ↓</span>":out(x[1])}</div><div class="fx"><b>No</b> ${x[2]===">"?"<span class='fc'>go on ↓</span>":out(x[2])}</div></div></div>`).join("")}${f.end?`<div class="fend">${esc(f.end)}</div>`:""}</div>`;
+}
+function page(id){
+ const s=S[id],br=BR.find(b=>b.s.includes(id));
+ return `<span class="badge">Section ${id}</span><span class="tg ${s.tag}">${TAGL[s.tag]}</span>
+ <h1 id="rtitle">${esc(T[id])}</h1><p class="by">${esc(s.bare_head)} · Branch: ${esc(br.t)}</p>
+ <nav class="toc" aria-label="On this page"><a href="#b-simple">Simple words</a><a href="#b-why">Why</a><a href="#b-deep">Explained</a><a href="#b-flow">Flowchart</a><a href="#b-master">Master illustration</a><a href="#b-ills">Illustrations</a><a href="#b-conf">Don't confuse</a><a href="#b-bare">Bare act</a><a href="#b-exam">Exam box</a><a href="#b-quiz">Quiz</a></nav>
+ <section class="blk" id="b-simple"><h2>In simple words</h2><p class="simple">${s.simple}</p></section>
+ <section class="blk" id="b-why"><h2>Why the law says this</h2><div class="whybox">${esc(s.why)}</div></section>
+ <section class="blk deep" id="b-deep"><h2>Explained properly</h2>${s.deep}</section>
+ <section class="blk" id="b-flow"><h2>Decision flowchart</h2><p class="by">Use this to solve a problem question on s.${id}. Start at 1.</p>${flow(s.flow)}</section>
+ <section class="blk" id="b-master"><h2>Master illustration</h2><div class="master"><p class="story">${esc(s.master.story)}</p><ol>${s.master.steps.map(x=>`<li><b>${esc(x[0])}</b>${esc(x[1])}</li>`).join("")}</ol></div></section>
+ <section class="blk" id="b-ills"><h2>Illustration for every element</h2><div class="panels">${s.ills.map(p=>`<div class="panel"><span class="pk">${esc(p[0])}</span><p>${esc(p[1])}</p><span class="vd ${p[2]}">${esc(p[3])}</span><p class="why">${esc(p[4])}</p></div>`).join("")}</div></section>
+ <section class="blk" id="b-conf"><h2>Don't confuse with ${esc(s.conf.other)}</h2><div class="scroll"><table class="cmp vs"><thead><tr><th></th><th>s.${id}</th><th>${esc(s.conf.other)}</th></tr></thead><tbody>${s.conf.rows.map(r=>`<tr><td>${esc(r[0])}</td><td>${esc(r[1])}</td><td>${esc(r[2])}</td></tr>`).join("")}</tbody></table></div></section>
+ <section class="blk" id="b-bare"><details class="baredd"><summary><h2>Show bare act</h2><span class="by">Exact text with a phrase-by-phrase breakdown</span></summary><p class="by">Tap a highlighted phrase to jump to its note.</p><div class="bare"><span class="src">Transfer of Property Act, 1882 · ${esc(s.bare_head)}</span>${s.bare_html}</div>${s.note?`<p class="fixnote">${esc(s.note)}</p>`:""}${dnotes(s)}</details></section>
+ <section class="blk" id="b-exam"><h2>Exam box</h2><div class="exam"><p><b>Likely question:</b> ${esc(s.exam.q)}</p><ol>${s.exam.pts.map(x=>`<li>${esc(x)}</li>`).join("")}</ol><p class="line"><b>Memorise:</b> ${esc(s.exam.line)}</p></div></section>
+ <section class="blk quiz" id="b-quiz"><h2>Quick quiz</h2>${s.quiz.map((q,i)=>`<div class="q" data-q="${i}"><b>${i+1}. ${esc(q[0])}</b><div class="opts">${q[1].map((o,j)=>`<button data-j="${j}">${esc(o)}</button>`).join("")}</div><p class="ans" hidden></p></div>`).join("")}</section>
+ <section class="blk" id="b-links"><h2>Linked sections</h2><ul class="links">${s.links.map(l=>`<li><b>${esc(l[0])}</b> · ${esc(l[1])}</li>`).join("")}</ul></section>
+ <section class="blk"><div class="next"><b class="hand" style="font-size:24px">Connection to the next section</b><p>${esc(s.next)}</p></div></section>
+ <label class="mark"><input type="checkbox" id="mark" ${done[id]?"checked":""}> Mark section ${id} as revised</label>`;
+}
+let cur=null;
+const reader=document.getElementById("reader"),rbody=document.getElementById("rbody");
+function open(id){
+ cur=id;rbody.innerHTML=page(id);reader.classList.add("open");reader.scrollTop=0;document.body.style.overflow="hidden";
+ const i=ORDER.indexOf(id);
+ document.getElementById("prev").disabled=i===0;
+ document.getElementById("nxt").textContent=i===ORDER.length-1?"Back to map":"Next: s."+ORDER[i+1];
+ const h="#s-"+id.toLowerCase();if(location.hash!==h)setHash(h);
+}
+function close(){reader.classList.remove("open");document.body.style.overflow="";cur=null;setHash("#detailed");drawMap()}
+function view(v){
+ const det=v==="detailed";
+ document.getElementById("detView").hidden=!det;document.getElementById("crispView").hidden=det;
+ document.getElementById("vDet").setAttribute("aria-pressed",det);document.getElementById("vMap").setAttribute("aria-pressed",!det);
+ if(!cur)setHash(det?"#detailed":"#mindmap");
+ if(det)requestAnimationFrame(wires);else requestAnimationFrame(()=>{if(!mmBuilt)buildMM();})
+}
+document.getElementById("vMap").onclick=()=>view("mindmap");
+document.getElementById("vDet").onclick=()=>view("detailed");
+document.addEventListener("click",e=>{
+ const c=e.target.closest(".chip");if(c){open(c.dataset.s);return}
+ const a=e.target.closest(".toc a");if(a){e.preventDefault();const t=rbody.querySelector(a.getAttribute("href"));if(t)t.scrollIntoView({behavior:"smooth"});return}
+ const mk=e.target.closest(".mk");if(mk){const li=rbody.querySelector(`.dnotes li[data-k="${mk.dataset.k}"]`);rbody.querySelectorAll(".dnotes li").forEach(x=>x.classList.remove("on"));if(li){li.classList.add("on");li.scrollIntoView({block:"center",behavior:"smooth"})}return}
+ const ob=e.target.closest(".quiz .opts button");if(ob){const box=ob.closest(".q"),q=S[cur].quiz[+box.dataset.q];if(box.dataset.done)return;box.dataset.done=1;box.querySelectorAll("button").forEach((b,j)=>{if(j===q[2])b.classList.add("ok");else if(b===ob)b.classList.add("no")});const w=box.querySelector(".ans");w.hidden=false;w.textContent=(+ob.dataset.j===q[2]?"Right. ":"Not quite. ")+q[3];}
+});
+document.addEventListener("change",e=>{if(e.target.id==="mark"){if(e.target.checked)done[cur]=1;else delete done[cur];save()}});
+document.getElementById("back").onclick=close;
+document.getElementById("prev").onclick=()=>{const i=ORDER.indexOf(cur);if(i>0)open(ORDER[i-1])};
+document.getElementById("nxt").onclick=()=>{const i=ORDER.indexOf(cur);if(i<ORDER.length-1)open(ORDER[i+1]);else close()};
+document.addEventListener("keydown",e=>{if(!cur||e.target.tagName==="INPUT")return;if(e.key==="Escape")close();if(e.key==="ArrowRight")document.getElementById("nxt").click();if(e.key==="ArrowLeft")document.getElementById("prev").click()});
+const IDX={};ORDER.forEach(id=>{const s=S[id];IDX[id]=(T[id]+" "+plain(s.simple)+" "+s.bare_head).toLowerCase()});
+const q=document.getElementById("q"),qi=document.getElementById("qinfo");
+q.addEventListener("input",()=>{const v=q.value.trim().toLowerCase().replace(/^s\.?\s*/,"").replace("cy-pres","cy-près");let n=0;document.querySelectorAll(".chip").forEach(c=>{const id=c.dataset.s;const hit=v&&(id.toLowerCase()===v||IDX[id].includes(v));c.classList.toggle("match",!!hit);if(hit)n++});qi.textContent=v?(n?n+" match"+(n>1?"es":"")+" · press Enter to open":"No match"):"54 sections · tap to open"});
+q.addEventListener("keydown",e=>{if(e.key==="Enter"){const m=document.querySelector(".chip.match");if(m)open(m.dataset.s)}});
+function route(){const h=location.hash.replace("#","");if(h.startsWith("s-")){const id=ORDER.find(x=>x.toLowerCase()===h.slice(2));if(id){view("detailed");open(id);return}}if(cur)close();view(h==="detailed"?"detailed":"mindmap")}
+window.addEventListener("hashchange",route);
+
+/* ---------- drill-down mind map ---------- */
+const MM=JSON.parse(document.getElementById('mmdata').textContent);
+const stage=document.getElementById("stage"),nodes=document.getElementById("nodes"),ddw=document.getElementById("ddw"),crumbs=document.getElementById("crumbs");
+let mmBuilt=false,dd={lv:0,b:null,s:null};
+function rng(b){const a=b.s[0],z=b.s[b.s.length-1];return a===z?`s.${a}`:`s.${a}–${z}`}
+function col(i){return `var(--b${i%8})`}
+function place(items,centre){
+ const W=stage.clientWidth;const ring=W>=720;let H,cx,cy,pos=[];
+ if(ring){H=Math.max(640,Math.min(920,Math.round(W*0.72)));cx=W/2;cy=H/2;const n=items.length;const iw=items[0]?items[0].w:150;const rx=W/2-iw/2-12,ry=H/2-62;
+  items.forEach((it,k)=>{const a=-Math.PI/2+k*2*Math.PI/n;pos.push([cx+rx*Math.cos(a),cy+ry*Math.sin(a)])})}
+ else{const cols=W>=480?3:2;const cw=(W)/cols;cx=W/2;cy=64;const top=170;const rh=items[0]&&items[0].sec?100:118;
+  items.forEach((it,k)=>{const r=Math.floor(k/cols),c=k%cols;pos.push([cw*c+cw/2,top+r*rh])});H=top+Math.ceil(items.length/cols)*rh;}
+ stage.style.height=H+"px";
+ return {pos,cx,cy,ring,W};
+}
+function lines(cx,cy,pos,cols){
+ const W=stage.clientWidth;
+ if(W>=720){ddw.innerHTML=pos.map((p,k)=>{const mx=(cx+p[0])/2+(k%2?14:-14),my=(cy+p[1])/2;return `<path d="M${cx} ${cy} Q ${mx} ${my} ${p[0]} ${p[1]}" fill="none" stroke="${cols[k]}" stroke-width="2.4" stroke-linecap="round" opacity=".8"/>`}).join("");return}
+ const last=Math.max(...pos.map(p=>p[1]));
+ ddw.innerHTML=`<path d="M${cx} ${cy+30} L ${cx} ${last}" fill="none" stroke="var(--ink)" stroke-width="3" stroke-linecap="round"/>`+pos.map((p,k)=>Math.abs(p[0]-cx)<4?"":`<path d="M${cx} ${p[1]} L ${p[0]} ${p[1]}" fill="none" stroke="${cols[k]}" stroke-width="2.4" stroke-linecap="round"/>`).join("");
+}
+function bub(html,x,y,w,c,cls,attrs,delay){return `<button class="bub ${cls}" style="left:${x}px;top:${y}px;--w:${w}px;--c:${c};animation-delay:${delay||0}ms" ${attrs||""}>${html}</button>`}
+function crumb(){
+ const parts=[`<button data-go="0" ${dd.lv===0?'aria-current="page"':''}>TPA 1882</button>`];
+ if(dd.lv>=1)parts.push(`<span>›</span><button data-go="1" ${dd.lv===1?'aria-current="page"':''}>${esc(MM.branch[dd.b])}</button>`);
+ if(dd.lv===2)parts.push(`<span>›</span><button data-go="2" aria-current="page">s.${dd.s}</button>`);
+ crumbs.innerHTML=parts.join("");
+}
+function render(){
+ mmBuilt=true;crumb();const W=stage.clientWidth;
+ if(dd.lv===0){
+  const iw=W>=720?Math.min(178,Math.max(140,W/7.2)):Math.min(170,(W/(W>=480?3:2))-14);
+  const items=BR.map((b,i)=>({w:iw}));
+  const L=place(items);
+  lines(L.cx,L.cy,L.pos,BR.map((b,i)=>col(i)));
+  nodes.innerHTML=bub(`<span class="h">TPA, 1882</span><span class="s">Sections 5 to 55 · 16 branches</span>`,L.cx,L.cy,Math.min(240,W-40),"var(--ink)","centre","tabindex='-1'")+
+   BR.map((b,i)=>bub(`<span class="h">${esc(MM.branch[i])}</span><span class="s">${rng(b)} · ${b.s.length} section${b.s.length>1?"s":""}</span>`,L.pos[i][0],L.pos[i][1],iw,col(i),"",`data-b="${i}"`,i*25)).join("");
+ }else if(dd.lv===1){
+  const b=BR[dd.b],c=col(dd.b);
+  const iw=W>=720?150:Math.min(150,(W/(W>=480?3:2))-14);
+  const items=b.s.map(()=>({w:iw,sec:1}));
+  const L=place(items.length>1?items:items.concat([]));
+  let pos=L.pos;if(L.ring&&b.s.length<=2){pos=b.s.map((id,k)=>[L.cx+(k?1:-1)*(b.s.length===1?0:W*0.25),L.cy+(b.s.length===1?170:150)])}
+  lines(L.cx,L.cy,pos,b.s.map(()=>c));
+  nodes.innerHTML=bub(`<span class="h">${esc(MM.branch[dd.b])}</span><span class="s">${rng(b)} · tap to go back</span>`,L.cx,L.cy,Math.min(260,W-40),c,"centre clickable",`data-go="0"`)+
+   b.s.map((id,k)=>bub(`<span class="h">s.${id}</span><span class="s"><i class="dot ${S[id].tag}"></i>${esc(MM.c[id][0])}</span>`,pos[k][0],pos[k][1],iw,c,"sec",`data-sec="${id}"`,k*35)).join("");
+ }else{
+  const id=dd.s,b=BR[dd.b],c=col(dd.b),k=b.s.indexOf(id);
+  ddw.innerHTML="";stage.style.height="auto";
+  nodes.innerHTML=`<div class="kcard" style="--c:${c}"><span class="badge">Section ${id}</span><span class="tg ${S[id].tag}">${TAGL[S[id].tag]}</span><h2>${esc(T[id])}</h2><ul>${MM.c[id][1].map(x=>`<li>${esc(x)}</li>`).join("")}</ul><p class="why"><b>Why the law says this:</b> ${esc(S[id].why)}</p>
+   <div class="acts"><button class="btn pri" data-open="${id}">Open full page</button><button class="btn" data-go="1">Back to branch</button>${k>0?`<button class="btn" data-sib="${b.s[k-1]}">← s.${b.s[k-1]}</button>`:""}${k<b.s.length-1?`<button class="btn" data-sib="${b.s[k+1]}">s.${b.s[k+1]} →</button>`:""}</div></div>`;
+ }
+}
+function buildMM(){render()}
+nodes.addEventListener("click",e=>{
+ const t=e.target.closest("[data-b],[data-sec],[data-go],[data-open],[data-sib]");if(!t)return;
+ if(t.dataset.b){dd={lv:1,b:+t.dataset.b,s:null}}
+ else if(t.dataset.sec){dd={lv:2,b:dd.b,s:t.dataset.sec}}
+ else if(t.dataset.sib){dd.s=t.dataset.sib}
+ else if(t.dataset.open){view("detailed");open(t.dataset.open);return}
+ else if(t.dataset.go){const g=+t.dataset.go;dd=g===0?{lv:0,b:null,s:null}:{lv:1,b:dd.b,s:null}}
+ render();stage.scrollIntoView({block:"nearest",behavior:"smooth"});
+});
+crumbs.addEventListener("click",e=>{const t=e.target.closest("[data-go]");if(!t)return;const g=+t.dataset.go;if(g===0)dd={lv:0,b:null,s:null};else if(g===1)dd={lv:1,b:dd.b,s:null};render()});
+let ddW=0;const ddro=new ResizeObserver(()=>{const w=stage.clientWidth;if(w===ddW)return;ddW=w;if(mmBuilt&&!document.getElementById("crispView").hidden&&dd.lv<2)render()});ddro.observe(document.getElementById("crispView"));
+let wr=0;const ro=new ResizeObserver(()=>{cancelAnimationFrame(wr);wr=requestAnimationFrame(wires)});ro.observe(document.getElementById("map"));
+drawMap();route();
+if(document.fonts)document.fonts.ready.then(wires);
+}
+</script>
+</body>
+</html>
